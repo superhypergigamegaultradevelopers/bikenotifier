@@ -1,0 +1,30 @@
+<h2>Comment</h2>
+
+<form action="/auth/login" method="POST" id="form-container" enctype="multipart/form-data">
+  <label for="content">Username</label>
+  <textarea type="text" name="content" placeholder="Tell your opinion about this post">
+
+  <br><br>
+
+  {{!-- <label for="password">Password</label>
+  <input id="password" type="password" name="password" placeholder="Your password">
+  <br>
+  {{#if message }}
+    <div class="error-message">{{ message }}</div>
+  {{/if}}
+
+  <br><br> --}}
+
+  <label>Avatar</label>
+  <input type="file" name="photo">
+
+  <br><br>
+
+  <button>Public</button>
+
+  {{!-- <p class="account-message">
+    Don't have an account yet? --}}
+    <a href="{{!-- Routa de comment publicado --}}">Public</a>
+  </p>
+</form>
+{{!-- Routa de comment publicado --}}

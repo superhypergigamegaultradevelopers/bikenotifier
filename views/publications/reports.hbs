@@ -1,0 +1,29 @@
+<form action="??ruta post??" method="POST" enctype="multipart/form-data">
+  <label>Content</label>
+  <textarea name="content" placeholder="Content"></textarea>
+
+<label>Nature</label>
+  <select name="nature">
+    <option value="damage">Damage</option>
+    <option value="infrastructure">Infrastructure</option>
+    <option value="cleanup">Cleanup</option>
+    <option value="others">Others</option>
+  </select>
+
+<label>Severity</label>
+  <select name="severity">
+    <option value="serious">Serious</option>
+    <option value="light">Light</option>    
+  </select>
+
+<label>State</label>
+  <select name="State">
+    <option value="done">Done</option>
+    <option value="not started">Not started</option>
+    <option value="in process">In process</option>
+  </select>
+
+  <label>Add image</label>
+  <input type="file" name="photo">
+  <button>Create Post</button>
+</form>
