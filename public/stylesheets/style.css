@@ -9,4 +9,12 @@ a {
   height: 500px;
   width: 100%; }
 
+#form-container {
+  display: flex;
+  flex-flow: row; }
+
+.ariadna {
+  display: flex;
+  flex-flow: row; }
+
 /*# sourceMappingURL=style.css.map */
