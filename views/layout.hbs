@@ -1,57 +1,82 @@
 <!DOCTYPE html>
 <lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>{{title}}</title>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUeQXCyJDlhOtCB8JwWAk8zCxpjk6k-jo"{{!-- +GoogleApi --}}></script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <link rel="stylesheet" href="/stylesheets/style.css" />
-</head>
-<body>
 
-  <nav>
-    <a href="/">Home</a>
-    <a href="/auth/login">Login</a>
-    <a href="/auth/signup">Signup</a>
-    <a href="/auth/logout">Logout</a>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{title}}</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUeQXCyJDlhOtCB8JwWAk8zCxpjk6k-jo"
+      {{!-- +GoogleApi --}}></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
 
-<hr><hr>
+  <body>
 
-    <a href="/journeys">Journeys</a>
-    <a href="{{!-- Ruta de Reports --}}">Reports</a>
-    <a href="{{!-- Ruta de P.de.Interes --}}">Points of interest</a>
+    <nav>
 
 
-  </nav>
+      <form action="/" method="POST" id="form-container">
+        <label for="username">Username</label>
+        <input id="username" type="text" name="username" placeholder="JonSnow">
 
-  {{{body}}}
-<div id="map"></div>
-  <script src="/javascripts/script.js"></script>
-</body>
+        <br><br>
 
-</html>
+        <label for="password">Password</label>
+        <input id="password" type="password" name="password" placeholder="Your password">
 
-<script>
-  window.onload = function() {
- 
-  function startMap() {
-  const madridCentro= {
-  	lat: 40.4167,
-  	lng: -3.7042};
-  const map = new google.maps.Map(
-    document.getElementById('map'),
-    {
-      zoom: 15,
-      center: madridCentro
-    }
-  );
-}
+        <br>
 
-startMap();
+        {{#if message }}
+        <div class="error-message">{{ message }}</div>
+        {{/if}}
 
-};
-</script>
+        <button>Login</button>
+      </form>
 
-{{!--  --}}
+
+
+      <a href="/auth/signup">Signup</a>
+      <a href="/auth/logout">Logout</a>
+
+      <hr>
+      <hr>
+
+      <a href="/journeys">Journeys</a>
+      <a href="{{!-- Ruta de Reports --}}">Reports</a>
+      <a href="{{!-- Ruta de P.de.Interes --}}">Points of interest</a>
+
+
+    </nav>
+
+    {{{body}}}
+    <div id="map"></div>
+    <script src="/javascripts/script.js"></script>
+  </body>
+
+  </html>
+
+  <script>
+    window.onload = function () {
+
+      function startMap() {
+        const madridCentro = {
+          lat: 40.4167,
+          lng: -3.7042
+        };
+        const map = new google.maps.Map(
+          document.getElementById('map'),
+          {
+            zoom: 15,
+            center: madridCentro
+          }
+        );
+      }
+
+      startMap();
+
+    };
+  </script>
+
+  {{!--  --}}

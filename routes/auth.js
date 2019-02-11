@@ -8,17 +8,17 @@ const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
 
-router.get("/login", (req, res, next) => {
-  res.render("auth/login", { "message": req.flash("error") });
+// router.get("/login", (req, res, next) => {
+//   res.render("auth/login", { "message": req.flash("error") });
   
-});
+// });
 
-router.post("/login", passport.authenticate("local", {
-  successRedirect: "/",
-  failureRedirect: "/auth/login",
-  failureFlash: true,
-  passReqToCallback: true
-}));
+// router.post("/login", passport.authenticate("local", {
+//   successRedirect: "/",
+//   failureRedirect: "/auth/login",
+//   failureFlash: true,
+//   passReqToCallback: true
+// }));
 
 router.get("/signup", (req, res, next) => {
   res.render("auth/signup");
