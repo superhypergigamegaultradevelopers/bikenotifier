@@ -11,13 +11,17 @@ const Journey = require('../models/journeys');
 
 router.get("/journeys"/* ,ensureLoggedIn("/") */,(req,res,next)=>{
   Journey.find({}).then(journeys => {
-    res.render("./tracking/list-journeys", { journeys })
+    res.json({
+      journeys
+    })
   })
 })
 
 router.get("/reports"/* ,ensureLoggedIn("/") */,(req,res,next)=>{
   Report.find({}).then(reports => {
-    res.render("./tracking/list-reports", { reports })
+    res.json({
+      reports
+    })
   })
 })
 

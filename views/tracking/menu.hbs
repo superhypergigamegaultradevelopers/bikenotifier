@@ -1,9 +1,55 @@
 <div id="menu">
-<h3>ESCOGE LO QUE QUIERAS WAPERAS</h3>
-<hr><hr>
-<a href="/navi/journeys">Journeys</a>
-<br><hr>
-<a href="/navi/reports">Reports</a>
-<br><hr>
-<a href="{{!-- Ruta de P.de.Interes --}}">Points of interest</a>
+  <h3>ESCOGE LO QUE QUIERAS WAPERAS</h3>
+  <hr>
+  <hr>
+  <button id="idJourneys">Journeys</button>
+  <br>
+  <hr>
+  <button id="idReports">Reports</button>
+  <br>
+  <hr>
+  {{!-- <button id="idPdI">Points of interest</button> --}}
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+<script>
+  document.querySelector("#idJourneys").addEventListener('click', function () {
+    const menuContainer = document.querySelector("#menu")
+    axios.get("http://localhost:3000/navi/journeys").then((journeysPayload) => {
+      menuContainer.innerHTML = "<h3>List of Journeys</h3>";
+
+      reportsPayload.data.journeys.forEach((journey) => {
+        menuContainer.innerHTML +=
+          `<div>
+            <h4>${journey.creatorId}</h4>
+              <ul>
+                <li>Nature: ${journey.nature}</li>
+                <li>Severity: ${journey.severity}</li>
+                <li>Description: ${journey.content}</li>
+              </ul>
+            </div>`
+      })
+
+    })
+  })
+
+  document.querySelector("#idReports").addEventListener('click', function () {
+    const menuContainer = document.querySelector("#menu")
+    axios.get("http://localhost:3000/navi/reports").then((reportsPayload) => {
+      menuContainer.innerHTML = "<h3>List of Reports</h3>";
+
+      reportsPayload.data.reports.forEach((report) => {
+        menuContainer.innerHTML +=
+          `<div>
+            <h4>${report.creatorId}</h4>
+              <ul>
+                <li>Nature: ${report.nature}</li>
+                <li>Severity: ${report.severity}</li>
+                <li>Description: ${report.content}</li>
+              </ul>
+            </div>`
+      })
+
+    })
+  })
+</script>
