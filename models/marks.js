@@ -10,4 +10,4 @@ const marksSchema = new Schema ({
 });
 
 marksSchema.index({ location: '2dsphere' });
-module.exports = mongoose.model("Place", markssSchema);
+module.exports = mongoose.model("Mark", markssSchema);

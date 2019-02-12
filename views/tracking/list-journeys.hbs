@@ -1,0 +1,13 @@
+<h3>List of Journeys</h3>
+<ul>
+  {{#each journeys}}
+  <li>
+    <p>User id: {{this.creatorId}}</p>
+    <p>Description: {{this.content}}</p>
+    
+
+
+    <a href="/navi/journeys/{{this._id}}">Read more</a>
+  </li>
+  {{/each}}
+</ul>
