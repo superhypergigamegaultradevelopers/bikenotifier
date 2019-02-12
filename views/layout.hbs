@@ -16,43 +16,40 @@
 
     <nav>
 
-<div class="ariadna">
-      <form action="/" method="POST" id="form-container">
-        <label for="username">Username</label>
-        <input id="username" type="text" name="username" placeholder="JonSnow">
+      <div class="ariadna">
+        <form action="/" method="POST" id="form-container">
+          <label for="username">Username</label>
+          <input id="username" type="text" name="username" placeholder="JonSnow">
 
-        <br><br>
+          <br><br>
 
-        <label for="password">Password</label>
-        <input id="password" type="password" name="password" placeholder="Your password">
+          <label for="password">Password</label>
+          <input id="password" type="password" name="password" placeholder="Your password">
 
-        <br>
+          <br>
 
-        {{#if message }}
-        <div class="error-message">{{ message }}</div>
-        {{/if}}
+          {{#if message }}
+          <div class="error-message">{{ message }}</div>
+          {{/if}}
 
-        <button>Login</button>
-      </form>
+          <button>Login</button>
+        </form>
 
         <a href="/auth/signup">Signup</a>
         <a href="/auth/logout">Logout</a>
-      
+
       </div>
-      
+
 
       <hr>
       <hr>
 
-      <a href="/journeys">Journeys</a>
-      <a href="{{!-- Ruta de Reports --}}">Reports</a>
-      <a href="{{!-- Ruta de P.de.Interes --}}">Points of interest</a>
-
+       
 
     </nav>
-
-    {{{body}}}
     <div id="map"></div>
+    {{{body}}}
+
     <script src="/javascripts/script.js"></script>
   </body>
 

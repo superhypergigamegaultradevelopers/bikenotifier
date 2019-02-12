@@ -1,12 +1,13 @@
 const express = require("express");
 const passport = require('passport');
 const router = express.Router();
+const { ensureLoggedIn, ensureLoggedOut } = require("connect-ensure-login");
 
 // router.get("/",(req,res,next)=>{
 //     res.render("tracking/map")
 // })
 
-router.get("/trip",midelweeeeer,(req,res,next)=>{
+router.get("/trips",ensureLoggedIn("/"),(req,res,next)=>{
 //render la pagina de trip
 })
 
@@ -35,3 +36,4 @@ router.post("/newpost",midelweeeeer,(req,res,next)=>{
 //points of interest
  })
 
+ module.exports = router;

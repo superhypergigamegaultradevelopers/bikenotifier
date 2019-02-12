@@ -1,4 +1,7 @@
 body {
+  background-image: url("../images/bicicleta-curvada.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
@@ -8,8 +11,9 @@ a {
 }
 
 #map {
-  height: 500px;
-  width: 100%;
+  float: left;
+  height: 300px;
+  width: 60%;
  }
 
  #form-container{
@@ -20,4 +24,8 @@ a {
  .ariadna{
    display: flex;
    flex-flow: row;
+ }
+
+ .menu{
+  
  }
