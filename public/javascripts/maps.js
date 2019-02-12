@@ -30,8 +30,8 @@ function drawMarker(lat,lng){
     const myMarker = new google.maps.Marker(
         {
         position: {
-            lat: lat,
-          lng: lng
+        lat: lat,
+        lng: lng
         },
         map: map,
         title: "I'm here"
@@ -44,6 +44,10 @@ map.addListener('click', function (e) {
       position: {
         lat: e.latLng.lat(),
         lng: e.latLng.lng()
+
       }
+      
     })
+    console.log (e.latLng.lat(),e.latLng.lng())
 })
+
