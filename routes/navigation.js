@@ -61,8 +61,7 @@ router.post("/journey/new",(req,res,next)=>
       //dislikes:2req.body.dislikes
 
       }).then(()=>{
-        console.log('SIIIIIIIIIIIII')
-        res.redirect("/navi/journey/new")
+       res.redirect("/navi/journey/new")
       }).catch(() => console.log('lalalalalalalalalalala'))
     }).catch(()=>console.log('NOOOOOOOOOOOOOOOOOOOo'))
     
@@ -126,8 +125,12 @@ router.post("/report/new",(req,res,next)=>
       state: req.body.state,
       likes: 3,//req.body.likes,
       dislikes:2// req.body.dislikes
-      }).catch(console.log('NOOOOOOOOOOOOOOOOOOOo'))
-    })
+      
+      }).then(()=>{
+        res.redirect("/navi/report/new")
+       }).catch(() => console.log('lalalalalalalalalalala'))
+     }).catch(console.log('NOOOOOOOOOOOOOOOOOOOo'))
+    
     
 })
 
