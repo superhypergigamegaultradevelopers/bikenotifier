@@ -26,6 +26,8 @@ router.post("/navi",bodyParse(),(req,res,next)=>{
     
 })
 
+router.get("/rutadelformulariodereports")
+
 // router.get("/trip",midelweeeeer,(req,res,next)=>{
  //reports
 // })
