@@ -27,6 +27,7 @@ router.post(
       .then(comment => {
         Report.findByIdAndUpdate(req.params.id, {
           $push: { comments: comment._id }
+          
         })
           .then(() => {
             console.log("comment was saved!");
