@@ -6,7 +6,8 @@ const Schema  = mongoose.Schema;
 const marksSchema = new Schema ({
   //name:String,
  // markerType: {type: String, enum: ["damage", "infrastructure", "cleanup", "others"]},
-  location:{lat:Number, lng:Number}
+  location:{lat:Number, lng:Number},
+  pic:"String"
 }, {
   timestamps:true
 });
