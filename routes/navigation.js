@@ -4,6 +4,8 @@ const router = express.Router();
 const { ensureLoggedIn, ensureLoggedOut } = require("connect-ensure-login");
 const Report = require('../models/reports');
 const Journey = require('../models/journeys');
+const cloudinary = require("../options/cloudinary");
+
 
 // router.get("/",(req,res,next)=>{
 //     res.render("tracking/map")
