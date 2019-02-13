@@ -50,6 +50,7 @@ router.post("/journey/new",(req,res,next)=>
     //   );
     ).then(()=>
     {
+      console.log('PRIMER THEN')
       Journey.create(
       {
       markEnd: {lat:req.body.marks,lng:req.body.marks3},
@@ -58,8 +59,12 @@ router.post("/journey/new",(req,res,next)=>
      // markEnd: req.body.markEnd,
       //likes: 3,req.body.likes,
       //dislikes:2req.body.dislikes
-      }).catch(console.log('NOOOOOOOOOOOOOOOOOOOo'))
-    })
+
+      }).then(()=>{
+        console.log('SIIIIIIIIIIIII')
+        res.redirect("/navi/journey/new")
+      }).catch(() => console.log('lalalalalalalalalalala'))
+    }).catch(()=>console.log('NOOOOOOOOOOOOOOOOOOOo'))
     
 })
 
