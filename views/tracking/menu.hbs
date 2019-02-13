@@ -17,7 +17,8 @@
   document.querySelector("#idJourneys").addEventListener('click', function () {
     const menuContainer = document.querySelector("#menu")
     axios.get("http://localhost:3000/navi/journeys").then((journeysPayload) => {
-      menuContainer.innerHTML = "<h3>List of Journeys</h3>";
+      menuContainer.innerHTML = `<h3>List of Journeys</h3>
+                              <a href="/navi/journey/new">Add Journey</a>`;
 
       journeysPayload.data.journeys.forEach((journey) => {
         menuContainer.innerHTML +=
@@ -38,7 +39,8 @@
   document.querySelector("#idReports").addEventListener('click', function () {
     const menuContainer = document.querySelector("#menu")
     axios.get("http://localhost:3000/navi/reports").then((reportsPayload) => {
-      menuContainer.innerHTML = "<h3>List of Reports</h3>";
+      menuContainer.innerHTML = `<h3>List of Reports</h3>
+                              <a href="/navi/report/new">Add Report</a>`;
 
       reportsPayload.data.reports.forEach((report) => {
         menuContainer.innerHTML +=
@@ -56,24 +58,5 @@
     })
   })
 
-  document.querySelector("#XXreport._idXX").addEventListener('click', function () {
-    const menuContainer = document.querySelector("#menu")
-    axios.get("http://localhost:3000/navi/reports").then((reportPayload) => {
-      menuContainer.innerHTML = "<h3>List of Reports</h3>";
-
-      reportsPayload.data.reports.forEach((report) => {
-        menuContainer.innerHTML +=
-          `<div>
-            <h4>${report.creatorId}</h4>
-              <ul>
-                <li>Nature: ${report.nature}</li>
-                <li>Severity: ${report.severity}</li>
-                <li>Description: ${report.content}</li>
-              </ul>
-              <button id="${report._id}">Read more</button>
-            </div>`
-      })
-
-    })
-  })
+  
 </script>

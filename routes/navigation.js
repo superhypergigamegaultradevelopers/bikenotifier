@@ -21,12 +21,50 @@ router.get("/journeys"/* ,ensureLoggedIn("/") */,(req,res,next)=>{
   })
 })
 
+router.get("/journey/new"/* , ensureLoggedIn("/") */,(req, res, next)=>{
+
+  console.log('Hi')
+ 
+ 
+    res.render("./publications/journey-Form");
+  
+ })
+
 router.get("/reports"/* ,ensureLoggedIn("/") */,(req,res,next)=>{
   Report.find({}).then(reports => {
     res.json({
       reports
     })
   })
+})
+
+router.post("/journey/new",(req,res,next)=>
+{ //ESTE VA A SER EL DE JOURNEYYYYYYYYY
+    console.log("va o no va",typeof( req.body.marks3),req.body.marks)
+    marks.create(
+    //    // { _id: mark._id }, 
+      {location: {lat:req.body.marks,lng:req.body.marks3},
+      pic:"String"
+      }
+    //   //  done
+    //   );
+    ).then(()=>
+    {
+      console.log('PRIMER THEN')
+      Journey.create(
+      {
+      markEnd: {lat:req.body.marks,lng:req.body.marks3},
+      identifier:req.body.identifier,
+      kindOfJourney: req.body.kindOfJourney
+     // markEnd: req.body.markEnd,
+      //likes: 3,req.body.likes,
+      //dislikes:2req.body.dislikes
+
+      }).then(()=>{
+       res.redirect("/navi/journey/new")
+      }).catch(() => console.log('lalalalalalalalalalala'))
+    }).catch(()=>console.log('NOOOOOOOOOOOOOOOOOOOo'))
+    
 })
 
 router.get("/journey/:id"/* , ensureLoggedIn("/") */,(req, res, next)=>{
@@ -42,6 +80,15 @@ router.get("/journey/:id"/* , ensureLoggedIn("/") */,(req, res, next)=>{
   });
  })
 
+ router.get("/report/new"/* , ensureLoggedIn("/") */,(req, res, next)=>{
+
+  console.log('Hi')
+ 
+ 
+    res.render("./publications/reports-Form");
+  
+ })
+
 router.get("/report/:id"/* , ensureLoggedIn("/") */,(req, res, next)=>{
  /* console.log(req.params.id) */
  Report.findById(req.params.id)
@@ -55,17 +102,43 @@ router.get("/report/:id"/* , ensureLoggedIn("/") */,(req, res, next)=>{
  });
 })
 
-// router.post("/",(req,res,next)=>{
-//     console.log("va o no va",typeof( req.body.marks))
-//     marks.create(
+
+router.post("/report/new",(req,res,next)=>
+{
+    console.log("va o no va",typeof( req.body.marks3),req.body.marks)
+    marks.create(
     //    // { _id: mark._id }, 
-      //  {location: {lat:req.body.marks,lng:req.body.marks3}}
+      {location: {lat:req.body.marks,lng:req.body.marks3},
+      pic:"String"
+      }
+
     //   //  done
     //   );
+    ).then(()=>
+    {
+      Report.create(
+      {
+      locationReport: {lat:req.body.marks,lng:req.body.marks3},
+      content:req.body.content,
+      picPath: req.body.picPath,
+      picName: req.body.picName,
+      nature: req.body.nature,
+      severity: req.body.severity,
+      state: req.body.state,
+      likes: 3,//req.body.likes,
+      dislikes:2// req.body.dislikes
+      
+      }).then(()=>{
+        res.redirect("/navi/report/new")
+       }).catch(() => console.log('lalalalalalalalalalala'))
+     }).catch(console.log('NOOOOOOOOOOOOOOOOOOOo'))
     
 //     )
     
 // })
+
+
+
 
 // router.get("/trip",midelweeeeer,(req,res,next)=>{
  //reports
