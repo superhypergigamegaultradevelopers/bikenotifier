@@ -1,0 +1,16 @@
+<h2>Report</h2>
+<h3>{{picName}}</h3>
+<img src="{{picPath}}">
+<p>Description: {{content}}</p>
+<p>Nature: {{nature}}</p>
+<p>Severity: {{severity}}</p>
+<p>State: {{state}}</p>
+<p>likes: {{likes}}</p>
+<p>dislikes: {{dislikes}}</p>
+<form action="/posts/add-comment/{{_id}}" method="POST" enctype="multipart/form-data">
+    <label for="content">Your Comment:</label>
+    <textarea name="content" placeholder="Write Comment here"></textarea>
+    <label for="photo">Upload Image</label>
+    <input type="file" name="photo">
+    <button>Add Comment</button>
+  </form>

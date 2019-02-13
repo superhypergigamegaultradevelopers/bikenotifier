@@ -17,3 +17,5 @@ const journeySchema = new Schema
         updatedAt:'updated_at'
     } 
 })
+const Journey = mongoose.model("Journey", journeySchema);
+module.exports = Journey;
