@@ -50,12 +50,24 @@
     <div id="map"></div>
     {{{body}}}
 
+<form method="POST" action="/navi" >
+ <input type="text" name="marks" id="marks">
+ <input type="text" name="marks3" id="marks3">
+ <input type="submit" value="Click to save Route">
+</form>
+
+
+
     <script src="/javascripts/script.js"></script>
+    <script src="/javascripts/maps.js"></script>
+  </body>
   </body>
 
   </html>
 
-  <script>
+ 
+
+  {{!-- <script>
     window.onload = function () {
 
       function startMap() {
@@ -75,6 +87,6 @@
       startMap();
 
     };
-  </script>
+  </script> --}}
 
   {{!--  --}}
