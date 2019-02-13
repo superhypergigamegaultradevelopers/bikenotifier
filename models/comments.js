@@ -3,7 +3,6 @@ const Schema = mongoose.Schema;
 
 const commentSchema = new Schema({
   content: String,
-  //textbox
   authorId: { type: Schema.Types.ObjectId, ref: "User" },
   imagePath: String,
   imageName: String
