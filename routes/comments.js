@@ -31,7 +31,7 @@ router.post(
         })
           .then(() => {
             console.log("comment was saved!");
-            res.redirect("/");
+            res.redirect("/navi/report/" + req.params.id);
           })
           .catch(err => console.log("error saving"));
       })
@@ -61,12 +61,24 @@ router.post(
         })
           .then(() => {
             console.log("comment was saved!");
-            res.redirect("/");
+            res.redirect("/navi/journey/" + req.params.id);
           })
           .catch(err => console.log("error saving"));
       })
       .catch(err => console.log("error saving a comment in database"));
   }
 );
+
+router.post("/delete-comment/:id", (req, res, next) => {
+  console.log("req.params.id: ",req.params.id)
+  CommentModel.findByIdAndRemove(req.params.id)
+    .then(()=> {
+      res.redirect("/");
+    })
+    .catch(error => {
+      res.send("an error has occurred deleting a comment");
+    });
+});
+
 
 module.exports = router;

@@ -1,6 +1,5 @@
 <h2>Report</h2>
-<img src="{{user.imagePath}}"
-<h3>{{picName}}</h3>
+<img src="{{user.imagePath}}" <h3>{{picName}}</h3>
 <img src="{{picPath}}">
 <p>Description: {{content}}</p>
 <p>Nature: {{nature}}</p>
@@ -9,10 +8,13 @@
 <p>likes: {{likes}}</p>
 <p>dislikes: {{dislikes}}</p>
 <div>
-{{#each this.comments}}
+  {{#each this.comments}}
   <img src="{{this.imagePath}}">
   <p>{{this.content}}</p>
-{{/each}}
+  <form action="/comment/delete-comment/{{this._id}}" method="POST">
+    <button type="submit">delete</button>
+  </form>
+  {{/each}}
 </div>
 <form action="/comment/report/add-comment/{{_id}}" method="POST" enctype="multipart/form-data">
   <label for="content">Your Comment:</label>
