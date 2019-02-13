@@ -70,7 +70,7 @@ router.post("/journey/new",(req,res,next)=>
 router.get("/journey/:id"/* , ensureLoggedIn("/") */,(req, res, next)=>{
   /* console.log(req.params.id) */
   Journey.findById(req.params.id)
-  /* .populate("comments") */
+  .populate("comments")
   .then(journey => {
     console.log(journey);
     res.render("./publications/journey-view", journey);
@@ -92,7 +92,7 @@ router.get("/journey/:id"/* , ensureLoggedIn("/") */,(req, res, next)=>{
 router.get("/report/:id"/* , ensureLoggedIn("/") */,(req, res, next)=>{
  /* console.log(req.params.id) */
  Report.findById(req.params.id)
- /* .populate("comments") */
+ .populate("comments")
  .then(report => {
    console.log(report);
    res.render("./publications/report-view", report);
@@ -102,6 +102,7 @@ router.get("/report/:id"/* , ensureLoggedIn("/") */,(req, res, next)=>{
  });
 })
 
+
 router.post("/report/new",(req,res,next)=>
 {
     console.log("va o no va",typeof( req.body.marks3),req.body.marks)
@@ -110,6 +111,7 @@ router.post("/report/new",(req,res,next)=>
       {location: {lat:req.body.marks,lng:req.body.marks3},
       pic:"String"
       }
+
     //   //  done
     //   );
     ).then(()=>
@@ -131,8 +133,9 @@ router.post("/report/new",(req,res,next)=>
        }).catch(() => console.log('lalalalalalalalalalala'))
      }).catch(console.log('NOOOOOOOOOOOOOOOOOOOo'))
     
+//     )
     
-})
+// })
 
 
 

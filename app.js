@@ -84,7 +84,9 @@ app.use('/auth', authRoutes);
 const navigation = require('./routes/navigation');
 app.use('/navi', navigation);
 
-      
+const comment = require('./routes/comments');
+app.use('/comment', comment);
+     
 
 
 module.exports = app;
