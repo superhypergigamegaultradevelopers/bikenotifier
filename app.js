@@ -83,6 +83,8 @@ app.use('/auth', authRoutes);
 
 const navigation = require('./routes/navigation');
 app.use('/navi', navigation);
+
       
+
 
 module.exports = app;
