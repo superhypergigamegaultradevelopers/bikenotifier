@@ -32,7 +32,7 @@ router.get("/reports"/* ,ensureLoggedIn("/") */,(req,res,next)=>{
 router.get("/journey/:id"/* , ensureLoggedIn("/") */,(req, res, next)=>{
   /* console.log(req.params.id) */
   Journey.findById(req.params.id)
-  /* .populate("comments") */
+  .populate("comments")
   .then(journey => {
     console.log(journey);
     res.render("./publications/journey-view", journey);
@@ -45,7 +45,7 @@ router.get("/journey/:id"/* , ensureLoggedIn("/") */,(req, res, next)=>{
 router.get("/report/:id"/* , ensureLoggedIn("/") */,(req, res, next)=>{
  /* console.log(req.params.id) */
  Report.findById(req.params.id)
- /* .populate("comments") */
+ .populate("comments")
  .then(report => {
    console.log(report);
    res.render("./publications/report-view", report);
@@ -55,17 +55,17 @@ router.get("/report/:id"/* , ensureLoggedIn("/") */,(req, res, next)=>{
  });
 })
 
-router.post("/",bodyParse(),(req,res,next)=>{
-    console.log("va o no va",typeof( req.body.marks))
-    marks.create(
+// router.post("/",(req,res,next)=>{
+//     console.log("va o no va",typeof( req.body.marks))
+//     marks.create(
     //    // { _id: mark._id }, 
-       {location: {lat:req.body.marks,lng:req.body.marks3}}
+      //  {location: {lat:req.body.marks,lng:req.body.marks3}}
     //   //  done
     //   );
     
-    )
+//     )
     
-})
+// })
 
 // router.get("/trip",midelweeeeer,(req,res,next)=>{
  //reports
