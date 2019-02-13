@@ -5,6 +5,8 @@ const journeySchema = new Schema
 ({
     //checkpoints:[],//desde api de google
     identifier:String, //ya veremos como entra
+    creatorId: { type: Schema.Types.ObjectId, ref: "User" },
+    comments: [{ type: Schema.Types.ObjectId, ref: "Comment" }],
     //textbox
 //markIni: {type: Schema.Types.ObjectId, ref: "Marks"},//ver como entra desde Marks
     markEnd:{lat:Number, lng:Number},//ver como entra desde Marks

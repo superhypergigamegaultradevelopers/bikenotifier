@@ -4,8 +4,8 @@ const Schema = mongoose.Schema;
 const reportSchema = new Schema(
   {
     content: String,
-    // creatorId: { type: Schema.Types.ObjectId, ref: "User" },
-    // comments: [{ type: Schema.Types.ObjectId, ref: "Comment" }],
+    creatorId: { type: Schema.Types.ObjectId, ref: "User" },
+    comments: [{ type: Schema.Types.ObjectId, ref: "Comment" }],
     locationReport:{lat:Number, lng:Number},
     picPath: String,
     picName: String,

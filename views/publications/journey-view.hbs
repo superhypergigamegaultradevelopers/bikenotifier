@@ -1,13 +1,15 @@
 <h2>Journey</h2>
 <h3>{{picName}}</h3>
 <img src="{{picPath}}">
-<p>Description: {{content}}</p>
-<p>Nature: {{nature}}</p>
-<p>Severity: {{severity}}</p>
-<p>State: {{state}}</p>
-<p>likes: {{likes}}</p>
-<p>dislikes: {{dislikes}}</p>
-<form action="/posts/add-comment/{{_id}}" method="POST" enctype="multipart/form-data">
+<p>Description: {{identifier}}</p>
+<p>Nature: {{kindOfJourney}}</p>
+<div>
+{{#each this.comments}}
+  <img src="{{this.imagePath}}">
+  <p>{{this.content}}</p>
+{{/each}}
+</div>
+<form action="/comment/journey/add-comment/{{_id}}" method="POST" enctype="multipart/form-data">
     <label for="content">Your Comment:</label>
     <textarea name="content" placeholder="Write Comment here"></textarea>
     <label for="photo">Upload Image</label>
