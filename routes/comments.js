@@ -9,11 +9,10 @@ const cloudinary = require("../options/cloudinary");
 const CommentModel = require("../models/comments");
 
 router.post(
-  "/add-comment/:id",
+  "/report/add-comment/:id",
   cloudinary.single("photo"),
   (req, res, next) => {
     console.log("req.body.content: ", req.body.content);
-    console.log("req.user: ", req.user);
     const content = req.body.content;
     const imagePath = req.file.secure_url;
     const imageName = req.file.originalname;
@@ -23,16 +22,40 @@ router.post(
       imageName
     });
 
-    /* const { title, description } = req.body;
-    const imgPathhhh = req.file.url;
-    const imgName = req.file.originalname;
-    const newMovie = new Movie({title, description, imgPath, imgName})
-    newMovie.save() */
-
     newComment
       .save()
       .then(comment => {
         Report.findByIdAndUpdate(req.params.id, {
+          $push: { comments: comment._id }
+        })
+          .then(() => {
+            console.log("comment was saved!");
+            res.redirect("/");
+          })
+          .catch(err => console.log("error saving"));
+      })
+      .catch(err => console.log("error saving a comment in database"));
+  }
+);
+
+router.post(
+  "/journey/add-comment/:id",
+  cloudinary.single("photo"),
+  (req, res, next) => {
+    console.log("req.body.content: ", req.body.content);
+    const content = req.body.content;
+    const imagePath = req.file.secure_url;
+    const imageName = req.file.originalname;
+    const newComment = new CommentModel({
+      content,
+      imagePath,
+      imageName
+    });
+
+    newComment
+      .save()
+      .then(comment => {
+        Journey.findByIdAndUpdate(req.params.id, {
           $push: { comments: comment._id }
         })
           .then(() => {
