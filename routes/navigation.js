@@ -25,6 +25,33 @@ router.get("/reports"/* ,ensureLoggedIn("/") */,(req,res,next)=>{
   })
 })
 
+router.get("/journey/:id"/* , ensureLoggedIn("/") */,(req, res, next)=>{
+  /* console.log(req.params.id) */
+  Journey.findById(req.params.id)
+  /* .populate("comments") */
+  .then(journey => {
+    console.log(journey);
+    res.render("./publications/journey-view", journey);
+  })
+  .catch(error => {
+    console.log(error);
+  });
+ })
+
+router.get("/report/:id"/* , ensureLoggedIn("/") */,(req, res, next)=>{
+ /* console.log(req.params.id) */
+ Report.findById(req.params.id)
+ /* .populate("comments") */
+ .then(report => {
+   console.log(report);
+   res.render("./publications/report-view", report);
+ })
+ .catch(error => {
+   console.log(error);
+ });
+})
+
+
 // router.get("/trip",midelweeeeer,(req,res,next)=>{
 //points of interest
 // })
