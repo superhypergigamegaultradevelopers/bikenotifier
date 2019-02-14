@@ -1,7 +1,8 @@
+require('dotenv').config();
 const mongoose = require("mongoose");
 const Report = require("../models/reports");
 
-mongoose.connect(`mongodb://localhost/bikenotifier`);
+mongoose.connect(process.env.DBURL);
 
 const reports = [
   {
