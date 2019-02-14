@@ -13,7 +13,7 @@ const marks = require('../models/marks.js')
 //     res.render("tracking/map")
 // })
 
-router.get("/journeys"/* ,ensureLoggedIn("/") */,(req,res,next)=>{
+router.get("/journeys", (req,res,next)=>{
   Journey.find({}).then(journeys => {
     res.json({
       journeys
@@ -21,7 +21,7 @@ router.get("/journeys"/* ,ensureLoggedIn("/") */,(req,res,next)=>{
   })
 })
 
-router.get("/journey/new"/* , ensureLoggedIn("/") */,(req, res, next)=>{
+router.get("/journey/new", ensureLoggedIn("/"),(req, res, next)=>{
 
   console.log('Hi')
  
@@ -30,7 +30,7 @@ router.get("/journey/new"/* , ensureLoggedIn("/") */,(req, res, next)=>{
   
  })
 
-router.get("/reports"/* ,ensureLoggedIn("/") */,(req,res,next)=>{
+router.get("/reports",(req,res,next)=>{
   Report.find({}).then(reports => {
     res.json({
       reports
@@ -38,7 +38,7 @@ router.get("/reports"/* ,ensureLoggedIn("/") */,(req,res,next)=>{
   })
 })
 
-router.post("/journey/new",(req,res,next)=>
+router.post("/journey/new"/* , ensureLoggedIn("/") */,(req,res,next)=>
 { //ESTE VA A SER EL DE JOURNEYYYYYYYYY
     console.log("va o no va",typeof( req.body.marks3),req.body.marks)
     marks.create(
@@ -71,6 +71,7 @@ router.get("/journey/:id"/* , ensureLoggedIn("/") */,(req, res, next)=>{
   /* console.log(req.params.id) */
   Journey.findById(req.params.id)
   .populate("comments")
+  .populate("creatorId")
   .then(journey => {
     console.log(journey);
     res.render("./publications/journey-view", journey);
@@ -80,7 +81,7 @@ router.get("/journey/:id"/* , ensureLoggedIn("/") */,(req, res, next)=>{
   });
  })
 
- router.get("/report/new"/* , ensureLoggedIn("/") */,(req, res, next)=>{
+ router.get("/report/new", ensureLoggedIn("/"),(req, res, next)=>{
 
   console.log('Hi')
  
@@ -93,6 +94,7 @@ router.get("/report/:id"/* , ensureLoggedIn("/") */,(req, res, next)=>{
  /* console.log(req.params.id) */
  Report.findById(req.params.id)
  .populate("comments")
+ .populate("creatorId")
  .then(report => {
    console.log(report);
    res.render("./publications/report-view", report);
@@ -103,8 +105,10 @@ router.get("/report/:id"/* , ensureLoggedIn("/") */,(req, res, next)=>{
 })
 
 
-router.post("/report/new",(req,res,next)=>
+router.post("/report/new", ensureLoggedIn("/"),cloudinary.single("photo"),(req,res,next)=>
 {
+  const imagePath = req.file.secure_url;
+  const imageName = req.file.originalname;
     console.log("va o no va",typeof( req.body.marks3),req.body.marks)
     marks.create(
     //    // { _id: mark._id }, 
@@ -120,8 +124,8 @@ router.post("/report/new",(req,res,next)=>
       {
       locationReport: {lat:req.body.marks,lng:req.body.marks3},
       content:req.body.content,
-      picPath: req.body.picPath,
-      picName: req.body.picName,
+      picPath: imagePath,
+      picName: imageName,
       nature: req.body.nature,
       severity: req.body.severity,
       state: req.body.state,

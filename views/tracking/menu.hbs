@@ -23,7 +23,7 @@
       journeysPayload.data.journeys.forEach((journey) => {
         menuContainer.innerHTML +=
           `<div>
-            <h4>${journey.creatorId}</h4>
+            <h4>${journey._id}</h4>
               <ul>
                 <li>Nature: ${journey.nature}</li>
                 <li>Severity: ${journey.severity}</li>
@@ -45,7 +45,7 @@
       reportsPayload.data.reports.forEach((report) => {
         menuContainer.innerHTML +=
           `<div>
-            <h4>${report.creatorId}</h4>
+            <h4>${report._id}</h4>
               <ul>
                 <li>Nature: ${report.nature}</li>
                 <li>Severity: ${report.severity}</li>
