@@ -1,7 +1,8 @@
-<h2>Report</h2>
+<h2>Selected Report</h2>
 <div>
   <p>Posted by: {{creatorId.username}}</p>
- </div>
+  <img src="{{creatorId.photoPath}}">
+</div>
 <p>Name: {{name}}</p>
 <p>Description: {{content}}</p>
 <img src="{{picPath}}">
@@ -14,7 +15,7 @@
   {{#each this.comments}}
   <img src="{{this.imagePath}}">
   <p>{{this.content}}</p>
-  <form action="/comment/delete-comment/{{this._id}}" method="POST">
+  <form action="/comment/delete-report/{{this._id}}/{{../_id}}" method="POST">
     <button type="submit">delete</button>
   </form>
   {{/each}}
