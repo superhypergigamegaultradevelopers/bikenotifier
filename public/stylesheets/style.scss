@@ -1,9 +1,21 @@
+/* colores: 
+azul oscuro: #112F41
+turquesa azul: #068587
+verde: #4FB99F
+amarillo: #F2B134 */
+
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+
+
 body {
-   background-image: url("../images/bicicleta-curvada.jpg");
+  /*  background-image: url("../images/bicicleta-curvada.jpg");
   background-repeat: no-repeat;
-  background-size: cover; 
+  background-size: cover;  */
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Montser#4FB99Frat', sans-serif;
 }
 
 a {
@@ -12,11 +24,79 @@ a {
 
 #map {
   float: left;
-  height: 300px;
-  width: 60%;
+  height: 700px;
+ width: 100%;
+  border: solid 4px #112F41;
+  margin-right: 20px;
  }
 
- #form-container{
+ .nav {
+   font-size: 2em;
+
+   a {
+    color:#068587;
+    &:hover {
+      color:#4FB99F;
+    }.contaner-fluid {
+      margin-bottom: 30px;
+    }
+   }
+ }
+
+.button-menu {
+  background-color: #F2B134;
+  color: white;
+  border: solid 1px #F2B134;
+  &:hover{
+    background-color: #068587;
+  }
+}
+ #form-container {
+  //  display: inline-block;
+  //  margin-left: 300px;
+ }
+
+ .map-container {
+   margin-top: 30px;
+ }
+
+ #menu {
+   color:#068587;
+   text-align: center;
+   img {
+     width: 15%;
+   }
+ }
+
+ .button-menu-style {
+   border-radius: 20px;
+   font-size: 1.5em;
+   margin: 40px;
+   padding: 20px 50px;
+ }
+ .button-mar{
+  border-radius: 20px;
+  font-size: 1.5em;
+  margin: 40px;
+   padding: 20px 50px;
+  
+ }
+ .menu2 {
+   margin: 20px;
+   h3 {
+     padding: 20px;
+   }
+
+   h4{
+     padding: 20px;
+   }
+ }
+
+ .img-menu {
+   margin-top: 40px;
+ }
+
+ /* #form-container{
    display: flex;
    flex-flow: row;
  }
@@ -28,4 +108,4 @@ a {
 
  .menu{
   
- }
+ } */
