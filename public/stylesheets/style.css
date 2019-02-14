@@ -6,20 +6,21 @@ amarillo: #F2B134 */
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
 body {
   /*  background-image: url("../images/bicicleta-curvada.jpg");
+
   background-repeat: no-repeat;
   background-size: cover;  */
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  font-family: 'Montser#4FB99Frat', sans-serif; }
+  font-family: "Montser#4FB99Frat", sans-serif; }
 
 a {
-  color: #00B7FF; }
+  color: #00b7ff; }
 
 #map {
   float: left;
   height: 700px;
   width: 100%;
-  border: solid 4px #112F41;
+  border: solid 4px #112f41;
   margin-right: 20px; }
 
 .nav {
@@ -27,14 +28,14 @@ a {
   .nav a {
     color: #068587; }
     .nav a:hover {
-      color: #4FB99F; }
+      color: #4fb99f; }
     .nav a .contaner-fluid {
       margin-bottom: 30px; }
 
 .button-menu {
-  background-color: #F2B134;
+  background-color: #f2b134;
   color: white;
-  border: solid 1px #F2B134; }
+  border: solid 1px #f2b134; }
   .button-menu:hover {
     background-color: #068587; }
 
@@ -69,18 +70,25 @@ a {
 .img-menu {
   margin-top: 40px; }
 
-/* #form-container{
-   display: flex;
-   flex-flow: row;
- }
+h2, h5 {
+  color: #068587;
+  text-align: center; }
 
- .ariadna{
-   display: flex;
-   flex-flow: row;
- }
+h6 {
+  color: #068587;
+  margin: 10px 0px 0px 0px; }
 
- .menu{
-  
- } */
+.jour-rep-box {
+  padding-left: 30px; }
+
+p {
+  font-size: 1.5em;
+  color: #112f41; }
+
+.user-pic {
+  width: 100px; }
+
+.picture {
+  width: 350px; }
 
 /*# sourceMappingURL=style.css.map */
