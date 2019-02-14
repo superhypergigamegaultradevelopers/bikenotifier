@@ -116,7 +116,7 @@ router.post("/report/new", ensureLoggedIn("/"),cloudinary.single("photo"),(req,r
     //   //  done
     //   );
     ).then(()=>
-    {
+    { console.log(req.body.repos3)
       Report.create(
       {
       locationReport: {lat:req.body.repos,lng:req.body.repos3},
