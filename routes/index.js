@@ -2,10 +2,11 @@ const express = require('express');
 const router  = express.Router();
 const passport = require('passport');
 const hbs=require ('handlebars')
-
+const marks=require("../models/marks")
 /* GET home page */
 router.get('/', (req, res, next) => {
   res.render('tracking/menu');
+  marks.find({location})
 });
 
 router.get("/", (req, res, next) => {

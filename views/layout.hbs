@@ -13,95 +13,39 @@
   </head>
 
   <body>
-
     <nav>
-
       <div class="ariadna">
         <form action="/" method="POST" id="form-container">
           <label for="username">Username</label>
           <input id="username" type="text" name="username" placeholder="JonSnow">
-
           <br><br>
-
           <label for="password">Password</label>
           <input id="password" type="password" name="password" placeholder="Your password">
-
           <br>
-
           {{#if message }}
           <div class="error-message">{{ message }}</div>
           {{/if}}
-
           <button>Login</button>
         </form>
-
         <a href="/auth/signup">Signup</a>
         <a href="/auth/logout">Logout</a>
         <a href="/">Home</a>
-
       </div>
-
-
       <hr>
       <hr>
-
-       
-
     </nav>
     <div id="map"></div>
-    {{{body}}}
-
-   
-
-
-       <script src="/javascripts/script.js"></script>
-       <script src="/javascripts/routing.js"></script>
-       <script src="/javascripts/repoSpoter.js"></script>
-       <script src="/javascripts/maps.js"></script>
-       <script>startMap();
-         if(window.location.pathname.includes('journey')) {
-          rutas();
-         } else if(window.location.pathname.includes('report')) {
-          repoRuter();
-         }
-        </script>
-
-{{!-- <form method="POST" action="/navi" >
- <input type="text" name="marks" id="marks">
- <input type="text" name="marks3" id="marks3">
- <input type="submit" value="Click to save Route">
-</form> --}}
-
-
-
-
-  </body>
-  </body>
-
-  </html>
-
- 
-
-  {{!-- <script>
-    window.onload = function () {
-
-      function startMap() {
-        const madridCentro = {
-          lat: 40.4167,
-          lng: -3.7042
-        };
-        const map = new google.maps.Map(
-          document.getElementById('map'),
-          {
-            zoom: 15,
-            center: madridCentro
-          }
-        );
+    <script src="/javascripts/script.js"></script>
+    <script src="/javascripts/routing.js"></script>
+    <script src="/javascripts/repoSpoter.js"></script>
+    <script src="/javascripts/maps.js"></script>
+    <script>startMap();
+      if (window.location.pathname.includes('journey')) {
+        rutas();
+      } else if (window.location.pathname.includes('report')) {
+        repoRuter();
       }
-
-      startMap();
-
-    };
-  </script> --}}
-
-  {{!--  --}}
+    </script>
+    {{{body}}}
+  </body>
+  </html>
