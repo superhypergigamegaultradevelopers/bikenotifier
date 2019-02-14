@@ -6,7 +6,7 @@ const marks=require("../models/marks")
 /* GET home page */
 router.get('/', (req, res, next) => {
   res.render('tracking/menu');
-  marks.find({location})
+  
 });
 
 router.get("/", (req, res, next) => {
