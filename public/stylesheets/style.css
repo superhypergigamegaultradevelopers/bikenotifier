@@ -60,6 +60,12 @@ a {
   margin: 40px;
   padding: 20px 50px; }
 
+.button-signup-style {
+  border-radius: 20px;
+  font-size: 1.5em;
+  margin: 40px auto;
+  padding: 20px 50px; }
+
 .menu2 {
   margin: 20px; }
   .menu2 h3 {
@@ -70,7 +76,8 @@ a {
 .img-menu {
   margin-top: 40px; }
 
-h2, h5 {
+h2,
+h5 {
   color: #068587;
   text-align: center; }
 
@@ -81,9 +88,16 @@ h6 {
 .jour-rep-box {
   padding-left: 30px; }
 
+.signup-box {
+  padding-left: 30px;
+  padding-top: 40px; }
+
 p {
   font-size: 1.5em;
   color: #112f41; }
+
+.margin {
+  margin-top: 30px; }
 
 .user-pic {
   width: 100px; }

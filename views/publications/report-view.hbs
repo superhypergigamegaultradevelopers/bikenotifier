@@ -20,19 +20,19 @@
     </form>
     {{/each}}
   </div>
+  <h6>Add new comment:</h6>
+  <form action="/comment/report/add-comment/{{_id}}" method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="content"></label>
+      <textarea class="form-control" rows="2" name="content" placeholder="Write your Comment here:"></textarea>
+    </div>
+    <div class="form-group form-inline">
+      <label for="photo">Upload Image</label>
+      <input class="form-control-file mb-2" type="file" name="photo">
+      <button class="button-menu mb-2">Add Comment</button>
+    </div>
+  </form>
 </div>
-<h6>Add new comment:</h6>
-<form action="/comment/report/add-comment/{{_id}}" method="POST" enctype="multipart/form-data">
-  <div class="form-group">
-    <label for="content"></label>
-    <textarea class="form-control" rows="2" name="content" placeholder="Write your Comment here:"></textarea>
-  </div>
-  <div class="form-group form-inline">
-    <label for="photo">Upload Image</label>
-    <input class="form-control-file mb-2" type="file" name="photo">
-    <button class="button-menu mb-2">Add Comment</button>
-  </div>
-</form>
 
 
 <script>
