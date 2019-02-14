@@ -18,11 +18,12 @@ function startMap()
      map = new google.maps.Map(document.getElementById('map'),
   {
     zoom: 10,
-    center: madridCentro
+    center: center
   });
   
  
 }
+//todo: consider moving out this call for additional flexibility
 startMap();
 
 map.addListener('click', function (e)
@@ -59,9 +60,10 @@ drawRoute(dirService, dirDisplay);
 
 
 dirDisplay.setMap(map);
-document.getElementById("now").onclick = function () {
+//todo: check this
+// document.getElementById("now").onclick = function () {
   
-}
+// }
 
 
 dirDisplay.setMap(map);
