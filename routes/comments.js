@@ -9,10 +9,11 @@ const cloudinary = require("../options/cloudinary");
 const CommentModel = require("../models/comments");
 
 router.post(
-  "/report/add-comment/:id", ensureLoggedIn("/"),
+  "/report/add-comment/:id",
+  ensureLoggedIn("/"),
   cloudinary.single("photo"),
   (req, res, next) => {
-   /*  console.log("req.body.content: ", req.body.content); */
+    /*  console.log("req.body.content: ", req.body.content); */
     const content = req.body.content;
     const imagePath = req.file.secure_url;
     const imageName = req.file.originalname;
@@ -27,7 +28,6 @@ router.post(
       .then(comment => {
         Report.findByIdAndUpdate(req.params.id, {
           $push: { comments: comment._id }
-          
         })
           .then(() => {
             console.log("comment was saved!");
@@ -40,7 +40,8 @@ router.post(
 );
 
 router.post(
-  "/journey/add-comment/:id", ensureLoggedIn("/"),
+  "/journey/add-comment/:id",
+  ensureLoggedIn("/"),
   cloudinary.single("photo"),
   (req, res, next) => {
     console.log("req.body.content: ", req.body.content);
@@ -69,28 +70,36 @@ router.post(
   }
 );
 
-router.post("/delete-report/:id/:report", ensureLoggedIn("/"), (req, res, next) => {
-  console.log("req.params.id: ",req.params.id)
-  CommentModel.findByIdAndRemove(req.params.id)
-    .then(comment=> {
-    /*   console.log(comment) */
-      res.redirect("/navi/report/" + req.params.report);
-    })
-    .catch(error => {
-      res.send("an error has occurred deleting a comment");
-    });
-});
+router.post(
+  "/delete-report/:id/:report",
+  ensureLoggedIn("/"),
+  (req, res, next) => {
+    console.log("req.params.id: ", req.params.id);
+    CommentModel.findByIdAndRemove(req.params.id)
+      .then(comment => {
+        /*   console.log(comment) */
+        res.redirect("/navi/report/" + req.params.report);
+      })
+      .catch(error => {
+        res.send("an error has occurred deleting a comment");
+      });
+  }
+);
 
-router.post("/delete-journey/:id/:journey", ensureLoggedIn("/"), (req, res, next) => {
-  console.log("req.params.id: ",req.params.id)
-  CommentModel.findByIdAndRemove(req.params.id)
-    .then(comment=> {
-    /*   console.log(comment) */
-      res.redirect("/navi/journey/" + req.params.journey);
-    })
-    .catch(error => {
-      res.send("an error has occurred deleting a comment");
-    });
-});
+router.post(
+  "/delete-journey/:id/:journey",
+  ensureLoggedIn("/"),
+  (req, res, next) => {
+    console.log("req.params.id: ", req.params.id);
+    CommentModel.findByIdAndRemove(req.params.id)
+      .then(comment => {
+        /*   console.log(comment) */
+        res.redirect("/navi/journey/" + req.params.journey);
+      })
+      .catch(error => {
+        res.send("an error has occurred deleting a comment");
+      });
+  }
+);
 
 module.exports = router;

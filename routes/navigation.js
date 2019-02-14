@@ -91,7 +91,7 @@ router.get("/journey/:id"/* , ensureLoggedIn("/") */,(req, res, next)=>{
   
  })
 
-router.get("/report/:id"/* , ensureLoggedIn("/") */,(req, res, next)=>{
+router.get("/report/:id", ensureLoggedIn("/"),(req, res, next)=>{
  /* console.log(req.params.id) */
  Report.findById(req.params.id)
  .populate("comments")
