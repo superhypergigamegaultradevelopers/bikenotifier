@@ -55,7 +55,8 @@ router.post("/journey/new"/* , ensureLoggedIn("/") */,(req,res,next)=>
       {
       markEnd: {lat:req.body.marks,lng:req.body.marks3},
       identifier:req.body.identifier,
-      kindOfJourney: req.body.kindOfJourney
+      kindOfJourney: req.body.kindOfJourney,
+      creatorId: req.user._id,
      // markEnd: req.body.markEnd,
       //likes: 3,req.body.likes,
       //dislikes:2req.body.dislikes
@@ -123,6 +124,7 @@ router.post("/report/new", ensureLoggedIn("/"),cloudinary.single("photo"),(req,r
     {
       Report.create(
       {
+      creatorId: req.user._id,
       locationReport: {lat:req.body.marks,lng:req.body.marks3},
       content:req.body.content,
       name: req.body.name,

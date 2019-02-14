@@ -69,16 +69,28 @@ router.post(
   }
 );
 
-router.post("/delete-comment/:id", ensureLoggedIn("/"), (req, res, next) => {
+router.post("/delete-report/:id/:report", ensureLoggedIn("/"), (req, res, next) => {
   console.log("req.params.id: ",req.params.id)
   CommentModel.findByIdAndRemove(req.params.id)
-    .then(()=> {
-      res.redirect("/");
+    .then(comment=> {
+    /*   console.log(comment) */
+      res.redirect("/navi/report/" + req.params.report);
     })
     .catch(error => {
       res.send("an error has occurred deleting a comment");
     });
 });
 
+router.post("/delete-journey/:id/:journey", ensureLoggedIn("/"), (req, res, next) => {
+  console.log("req.params.id: ",req.params.id)
+  CommentModel.findByIdAndRemove(req.params.id)
+    .then(comment=> {
+    /*   console.log(comment) */
+      res.redirect("/navi/journey/" + req.params.journey);
+    })
+    .catch(error => {
+      res.send("an error has occurred deleting a comment");
+    });
+});
 
 module.exports = router;
