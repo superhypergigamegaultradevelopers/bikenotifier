@@ -1,13 +1,16 @@
 <div id="menu">
-  <h3>ESCOGE LO QUE QUIERAS WAPERAS</h3>
-  <hr>
-  <hr>
-  <button id="idJourneys">Journeys</button>
+  <h3>Do you want to see our Jouneys or Reports?</h3>
+  
+  <img src="/images/route.png" class="img-menu">
   <br>
-  <hr>
-  <button id="idReports">Reports</button>
+  <button id="idJourneys" class="button-menu button-menu-style">Journeys</button>
   <br>
-  <hr>
+  
+  <img src="/images/newspaper.png">
+  <br>
+  <button id="idReports" class="button-menu button-menu-style">Reports</button>
+  <br>
+  
   {{!-- <button id="idPdI">Points of interest</button> --}}
 </div>
 
@@ -17,14 +20,16 @@
   document.querySelector("#idJourneys").addEventListener('click', function () {
     const menuContainer = document.querySelector("#menu")
     axios.get("http://localhost:3000/navi/journeys").then((journeysPayload) => {
-      menuContainer.innerHTML = `<h3>List of Journeys</h3>
-                              <a href="/navi/journey/new">Add Journey</a>`;
+      menuContainer.innerHTML = `<div class="menu2">
+                                <h3>List of Journeys</h3>
+                              <a href="/navi/journey/new" class="button-menu button-mar">Add Journey</a>
+                              </div>`;
 
       journeysPayload.data.journeys.forEach((journey) => {
         menuContainer.innerHTML +=
-          `<div>
+          `<div class="menu2">
             <h4>${journey.identifier}</h4>
-               <a href="/navi/journey/${journey._id}">Read more</a>
+               <a href="/navi/journey/${journey._id}" class="button-menu button-mar">Read more</a>
             </div>`
       })
 
@@ -34,14 +39,15 @@
   document.querySelector("#idReports").addEventListener('click', function () {
     const menuContainer = document.querySelector("#menu")
     axios.get("http://localhost:3000/navi/reports").then((reportsPayload) => {
-      menuContainer.innerHTML = `<h3>List of Reports</h3>
-                              <a href="/navi/report/new">Add Report</a>`;
+      menuContainer.innerHTML = `<div class="menu2">
+                              <h3>List of Reports</h3>
+                              <a href="/navi/report/new" class="button-menu button-mar">Add Report</a>`;
 
       reportsPayload.data.reports.forEach((report) => {
         menuContainer.innerHTML +=
-          `<div>
+          `<div class="menu2">
             <h4>${report.name}</h4>
-              <a href="/navi/report/${report._id}">Read more</a>
+              <a href="/navi/report/${report._id}" class="button-menu button-mar">Read more</a>
             </div>`
       })
 
