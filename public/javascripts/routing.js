@@ -20,8 +20,6 @@ map.addListener('click', function (e)
   var location=e.latLng.lat()
   var location3=e.latLng.lng()
 
-  document.querySelector("#marks").value=location
-  document.querySelector("#marks3").value=location3
   
 
 
@@ -35,6 +33,13 @@ map.addListener('click', function (e)
     location: {lat:location,lng:location3},
     stopover: true
   });
+
+  document.querySelector("#marks").value=pointer[0].lat
+  document.querySelector("#marks3").value=pointer[0].lng
+
+  document.querySelector("#ends").value=pointer[1].lat
+  document.querySelector("#ends3").value=pointer[1].lng
+  
 
   drawRoute(dirService, dirDisplay);
 })
