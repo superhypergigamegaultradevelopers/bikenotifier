@@ -9,6 +9,7 @@ const journeySchema = new Schema
     comments: [{ type: Schema.Types.ObjectId, ref: "Comment" }],
     //textbox
 //markIni: {type: Schema.Types.ObjectId, ref: "Marks"},//ver como entra desde Marks
+    markBeg:{lat:Number, lng:Number},//ver como entra desde Marks
     markEnd:{lat:Number, lng:Number},//ver como entra desde Marks
     kindOfJourney:{type:String, enum:['Job journey','Pleassure journey','Buying journey','Just for a walk']}
 },

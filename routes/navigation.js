@@ -49,7 +49,8 @@ router.post("/journey/new"/* , ensureLoggedIn("/") */,(req,res,next)=>
       console.log('PRIMER THEN')
       Journey.create(
       {
-      markEnd: {lat:req.body.marks,lng:req.body.marks3},
+      markBeg:{lat:req.body.marks,lng:req.body.marks3},
+      markEnd: {lat:req.body.ends,lng:req.body.ends3},
       identifier:req.body.identifier,
       kindOfJourney: req.body.kindOfJourney,
       creatorId: req.user._id,
