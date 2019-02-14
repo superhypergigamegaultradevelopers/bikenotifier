@@ -51,9 +51,20 @@
     <div id="map"></div>
     {{{body}}}
 
-       <script src="/javascripts/script.js"></script>
+   
 
+
+       <script src="/javascripts/script.js"></script>
+       <script src="/javascripts/routing.js"></script>
+       <script src="/javascripts/repoSpoter.js"></script>
        <script src="/javascripts/maps.js"></script>
+       <script>startMap();
+         if(window.location.pathname.includes('journey')) {
+          rutas();
+         } else if(window.location.pathname.includes('report')) {
+          repoRuter();
+         }
+        </script>
 
 {{!-- <form method="POST" action="/navi" >
  <input type="text" name="marks" id="marks">
