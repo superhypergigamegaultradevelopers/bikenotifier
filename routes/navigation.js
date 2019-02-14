@@ -96,6 +96,7 @@ router.get("/report/:id"/* , ensureLoggedIn("/") */,(req, res, next)=>{
  .populate("comments")
  .populate("creatorId")
  .then(report => {
+   console.log("patata")
    console.log(report);
    res.render("./publications/report-view", report);
  })
@@ -124,6 +125,7 @@ router.post("/report/new", ensureLoggedIn("/"),cloudinary.single("photo"),(req,r
       {
       locationReport: {lat:req.body.marks,lng:req.body.marks3},
       content:req.body.content,
+      name: req.body.name,
       picPath: imagePath,
       picName: imageName,
       nature: req.body.nature,

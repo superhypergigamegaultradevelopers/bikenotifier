@@ -1,17 +1,15 @@
 <h2>Report</h2>
 <div>
-  {{#each this.creatorId}}
-  <img src="{{this.imagePath}}">
-  <p>Posted by: {{this.username}}</p>
-   {{/each}}
-</div>
+  <p>Posted by: {{creatorId.username}}</p>
+ </div>
+<p>Name: {{name}}</p>
 <p>Description: {{content}}</p>
+<img src="{{picPath}}">
 <p>Nature: {{nature}}</p>
 <p>Severity: {{severity}}</p>
 <p>State: {{state}}</p>
 <p>likes: {{likes}}</p>
 <p>dislikes: {{dislikes}}</p>
-<img src="{{picPath}}">
 <div>
   {{#each this.comments}}
   <img src="{{this.imagePath}}">

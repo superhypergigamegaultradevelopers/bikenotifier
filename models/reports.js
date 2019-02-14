@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const reportSchema = new Schema(
   {
     content: String,
+    name: String,
     creatorId: { type: Schema.Types.ObjectId, ref: "User" },
     comments: [{ type: Schema.Types.ObjectId, ref: "Comment" }],
     locationReport:{lat:Number, lng:Number},
