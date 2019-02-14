@@ -9,10 +9,10 @@ const cloudinary = require("../options/cloudinary");
 const CommentModel = require("../models/comments");
 
 router.post(
-  "/report/add-comment/:id",
+  "/report/add-comment/:id", ensureLoggedIn("/"),
   cloudinary.single("photo"),
   (req, res, next) => {
-    console.log("req.body.content: ", req.body.content);
+   /*  console.log("req.body.content: ", req.body.content); */
     const content = req.body.content;
     const imagePath = req.file.secure_url;
     const imageName = req.file.originalname;
@@ -31,7 +31,7 @@ router.post(
         })
           .then(() => {
             console.log("comment was saved!");
-            res.redirect("/");
+            res.redirect("/navi/report/" + req.params.id);
           })
           .catch(err => console.log("error saving"));
       })
@@ -40,7 +40,7 @@ router.post(
 );
 
 router.post(
-  "/journey/add-comment/:id",
+  "/journey/add-comment/:id", ensureLoggedIn("/"),
   cloudinary.single("photo"),
   (req, res, next) => {
     console.log("req.body.content: ", req.body.content);
@@ -61,12 +61,24 @@ router.post(
         })
           .then(() => {
             console.log("comment was saved!");
-            res.redirect("/");
+            res.redirect("/navi/journey/" + req.params.id);
           })
           .catch(err => console.log("error saving"));
       })
       .catch(err => console.log("error saving a comment in database"));
   }
 );
+
+router.post("/delete-comment/:id", ensureLoggedIn("/"), (req, res, next) => {
+  console.log("req.params.id: ",req.params.id)
+  CommentModel.findByIdAndRemove(req.params.id)
+    .then(()=> {
+      res.redirect("/");
+    })
+    .catch(error => {
+      res.send("an error has occurred deleting a comment");
+    });
+});
+
 
 module.exports = router;
