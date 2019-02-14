@@ -22,9 +22,6 @@ router.get("/journeys", (req,res,next)=>{
 })
 
 router.get("/journey/new", ensureLoggedIn("/"),(req, res, next)=>{
-
-  console.log('Hi')
- 
  
     res.render("./publications/journey-Form");
   
@@ -39,8 +36,7 @@ router.get("/reports",(req,res,next)=>{
 })
 
 router.post("/journey/new"/* , ensureLoggedIn("/") */,(req,res,next)=>
-{ //ESTE VA A SER EL DE JOURNEYYYYYYYYY
-    console.log("va o no va",typeof( req.body.marks3),req.body.marks)
+{     console.log("va o no va",typeof( req.body.marks3),req.body.marks)
     marks.create(
     //    // { _id: mark._id }, 
       {location: {lat:req.body.marks,lng:req.body.marks3},
@@ -111,21 +107,21 @@ router.post("/report/new", ensureLoggedIn("/"),cloudinary.single("photo"),(req,r
 {
   const imagePath = req.file.secure_url;
   const imageName = req.file.originalname;
-    console.log("va o no va",typeof( req.body.marks3),req.body.marks)
+    console.log("Comprobando datos",typeof( req.body.repos3),'Valor',req.body.repos)
     marks.create(
-    //    // { _id: mark._id }, 
-      {location: {lat:req.body.marks,lng:req.body.marks3},
+    
+      {location: {lat:req.body.repos,lng:req.body.repos3},
       pic:"String"
       }
 
     //   //  done
     //   );
     ).then(()=>
-    {
+    { console.log(req.body.repos3)
       Report.create(
       {
+      locationReport: {lat:req.body.repos,lng:req.body.repos3},
       creatorId: req.user._id,
-      locationReport: {lat:req.body.marks,lng:req.body.marks3},
       content:req.body.content,
       name: req.body.name,
       picPath: imagePath,
