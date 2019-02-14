@@ -1,6 +1,9 @@
-{{!-- <script src="/javascripts/routing.js"></script> --}}
+<h2>Selected Journey</h2>
+<div>
+  <p>Posted by: {{creatorId.username}}</p>
+  <img src="{{creatorId.photoPath}}">
+</div>
 
-<h2>Journey</h2>
 <h3>{{picName}}</h3>
 <img src="{{picPath}}">
 <p>Description: {{identifier}}</p>
@@ -9,8 +12,12 @@
 {{#each this.comments}}
   <img src="{{this.imagePath}}">
   <p>{{this.content}}</p>
+   <form action="/comment/delete-journey/{{this._id}}/{{../_id}}" method="POST">
+    <button type="submit">d/elete</button>
+  </form>
 {{/each}}
 </div>
+
 <form action="/comment/journey/add-comment/{{_id}}" method="POST" enctype="multipart/form-data">
     <label for="content">Your Comment:</label>
     <textarea name="content" placeholder="Write Comment here"></textarea>
