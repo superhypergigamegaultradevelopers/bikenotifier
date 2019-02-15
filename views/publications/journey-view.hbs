@@ -2,13 +2,13 @@
   <h2>Your selected Journey</h2>
   <p>Posted by: {{creatorId.username}}</p>
   <img src="{{creatorId.photoPath}}" class="user-pic">
-  <p>Description: {{identifier}}</p>
+  <p class="textblock">Description: {{identifier}}</p>
   <p>Type of Journey: {{kindOfJourney}}</p>
   <div>
     <h5>Comments</h5>
     {{#each this.comments}}
     <img src="{{this.imagePath}}" class="picture">
-    <p>{{this.content}}</p>
+    <p class="textblock">{{this.content}}</p>
     <form action="/comment/delete-journey/{{this._id}}/{{../_id}}" method="POST">
       <button class="button-menu" type="submit">delete</button>
     </form>
@@ -18,7 +18,7 @@
   <form action="/comment/journey/add-comment/{{_id}}" method="POST" enctype="multipart/form-data">
     <div class="form-group">
       <label for="content"></label>
-      <textarea class="form-control" rows="2" name="content" placeholder="Write your Comment here:"></textarea>
+      <textarea class="form-control textblock" rows="2" name="content" placeholder="Write your Comment here:"></textarea>
     </div>
     <div class="form-group form-inline">
       <label for="photo">Upload Image</label>
