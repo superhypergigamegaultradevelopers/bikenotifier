@@ -7,13 +7,15 @@ amarillo: #F2B134 */
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
 
 body {
-  /*  background-image: url("../images/bicicleta-curvada.jpg");
 
-  background-repeat: no-repeat;
-  background-size: cover;  */
+
+  background: linear-gradient(0deg,rgba(255,255,255,0.6),rgba(255,255,255,0.3)), url("../images/bicicleta-curvada.jpg");
+  background-size: cover; 
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  font-family: "Montser#4FB99Frat", sans-serif;
+  font-family: 'Montser#4FB99Frat', sans-serif;
+  
+
 }
 
 a {
