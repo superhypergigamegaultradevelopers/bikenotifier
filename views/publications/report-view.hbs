@@ -1,37 +1,43 @@
-<h2>Selected Report</h2>
-<div>
+<div class="jour-rep-box">
+  <h2>Your selected Report</h2>
   <p>Posted by: {{creatorId.username}}</p>
-  
-  <img src="{{creatorId.photoPath}}">
-</div>
-<p>Name: {{name}}</p>
-<p>Description: {{content}}</p>
-<img src="{{picPath}}">
-<p>Nature: {{nature}}</p>
-<p>Severity: {{severity}}</p>
-<p>State: {{state}}</p>
-<p>likes: {{likes}}</p>
-<p>dislikes: {{dislikes}}</p>
-<div>
-  {{#each this.comments}}
-  <img src="{{this.imagePath}}">
-  <p>{{this.content}}</p>
-  <form action="/comment/delete-report/{{this._id}}/{{../_id}}" method="POST">
-    <button type="submit">delete</button>
+  <img src="{{creatorId.photoPath}}" class="user-pic">
+  <p  class="textblock">Name: {{name}}</p>
+  <p  class="textblock">Description: {{content}}</p>
+  <img src="{{picPath}}" class="picture">
+  <p>Nature: {{nature}}</p>
+  <p>Severity: {{severity}}</p>
+  <p>State: {{state}}</p>
+  <p>likes: {{likes}}</p>
+  <p>dislikes: {{dislikes}}</p>
+  <div>
+    <h5>Comments</h5>
+    {{#each this.comments}}
+    <img src="{{this.imagePath}}" class="picture">
+    <p  class="textblock">{{this.content}}</p>
+    <form action="/comment/delete-report/{{this._id}}/{{../_id}}" method="POST">
+      <button class="button-menu" type="submit">delete</button>
+    </form>
+    {{/each}}
+  </div>
+  <h6>Add new comment:</h6>
+  <form action="/comment/report/add-comment/{{_id}}" method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="content"></label>
+      <textarea class="form-control textblock" rows="2" name="content" placeholder="Write your Comment here:"></textarea>
+    </div>
+    <div class="form-group form-inline">
+      <label for="photo">Upload Image</label>
+      <input class="form-control-file mb-2" type="file" name="photo">
+      <button class="button-menu mb-2">Add Comment</button>
+    </div>
   </form>
-  {{/each}}
 </div>
-<form action="/comment/report/add-comment/{{_id}}" method="POST" enctype="multipart/form-data">
-  <label for="content">Your Comment:</label>
-  <textarea name="content" placeholder="Write Comment here"></textarea>
-  <label for="photo">Upload Image</label>
-  <input type="file" name="photo">
-  <button>Add Comment</button>
-</form>
 
- <script>
-    const theMarker = new google.maps.Marker({
-    position:{{locationReport}},
-    map: map });
-  </script>
-  <script src="/javascripts/paintReports.js"></script>
+
+<script>
+  const theMarker = new google.maps.Marker({
+    position: {{ locationReport }},
+  map: map });
+</script>
+<script src="/javascripts/paintReports.js"></script>

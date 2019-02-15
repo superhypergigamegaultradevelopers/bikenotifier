@@ -1,32 +1,33 @@
+<div class="jour-rep-box">
+  <h2>Describe your Journey</h2>
 
+  <form action="/navi/journey/new" method="POST">
+    <div class="form-group">
+      <label></label>
+      <input class="form-control" name="identifier" placeholder="Journey Description"></input>
+      <br>
+      <label>Type of Journey</label>
+      <select name="kindOfJourney">
+        <option value="Job journey">Job journey</option>
+        <option value="Pleassure journey">Pleassure journey</option>
+        <option value="Buying journey">Buying journey</option>
+        <option value="Just for a walk">Just for a walk</option>
+      </select>
+      <br><br>
+      <p>Click on map to mark Start-point and End-point</p>
+      <label></label>
+      <input class="form-control" type="text" name="marks" id="marks">
+      <input class="form-control" type="text" name="marks3" id="marks3">
+      <input class="form-control" type="text" name="ends" id="ends">
+      <input class="form-control" type="text" name="ends3" id="ends3">
+      <input class="button-menu button-signup-style" type="submit" value="Click to save Route">
+    </div>
 
+    {{!-- <label>End</label><br>
 
-<form action="/navi/journey/new" method="POST">
-  <label>Content</label>
-  <input name="identifier" placeholder="Content"></input>
-<br>
-<label>Nature</label>
-  <select name="kindOfJourney">
-    <option value="Job journey">Job journey</option>
-    <option value="Pleassure journey">Pleassure journey</option>
-    <option value="Buying journey">Buying journey</option>
-    <option value="Just for a walk">Just for a walk</option>
-  </select>
-  <br><br>
+    <input type="text" name="marks" id="marks"><br>
+    <input type="text" name="marks3" id="marks3"><br>
+    <input type="submit" value="Click to save Route"> --}}
 
-<label>Begininng</label><br>
-
-<input type="text" name="marks" id="marks"><br>
-<input type="text" name="marks3" id="marks3"><br>
-<input type="text" name="ends" id="ends"><br>
-<input type="text" name="ends3" id="ends3"><br>
-<input type="submit" value="Click to save Route">
-<br><br>
-
-{{!-- <label>End</label><br>
-
-<input type="text" name="marks" id="marks"><br>
-<input type="text" name="marks3" id="marks3"><br>
-<input type="submit" value="Click to save Route"> --}}
-
-</form>
+  </form>
+</div>

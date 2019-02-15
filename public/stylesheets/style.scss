@@ -4,12 +4,10 @@ turquesa azul: #068587
 verde: #4FB99F
 amarillo: #F2B134 */
 
-
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
-
-
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
 
 body {
+
 
   background: linear-gradient(0deg,rgba(255,255,255,0.6),rgba(255,255,255,0.3)), url("../images/bicicleta-curvada.jpg");
   background-size: cover; 
@@ -17,96 +15,129 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   font-family: 'Montser#4FB99Frat', sans-serif;
   
+
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
 }
 
 #map {
   float: left;
   height: 700px;
- width: 100%;
-  border: solid 4px #112F41;
+  width: 100%;
+  border: solid 4px #112f41;
   margin-right: 20px;
- }
+}
 
- .nav {
-   font-size: 2em;
+.nav {
+  font-size: 2em;
 
-   a {
-    color:#068587;
+  a {
+    color: #068587;
     &:hover {
-      color:#4FB99F;
-    }.contaner-fluid {
+      color: #4fb99f;
+    }
+    .contaner-fluid {
       margin-bottom: 30px;
     }
-   }
- }
+  }
+}
 
 .button-menu {
-  background-color: #F2B134;
+  background-color: #f2b134;
   color: white;
-  border: solid 1px #F2B134;
-  &:hover{
+  border: solid 1px #f2b134;
+  &:hover {
     background-color: #068587;
   }
 }
- #form-container {
+#form-container {
   //  display: inline-block;
   //  margin-left: 300px;
- }
+}
 
- .map-container {
-   margin-top: 30px;
- }
+.map-container {
+  margin-top: 30px;
+}
 
- #menu {
-   color:#068587;
-   text-align: center;
-   img {
-     width: 15%;
-   }
- }
+#menu {
+  color: #068587;
+  text-align: center;
+  img {
+    width: 15%;
+  }
+}
 
- .button-menu-style {
-   border-radius: 20px;
-   font-size: 1.5em;
-   margin: 40px;
-   padding: 20px 50px;
- }
- .button-mar{
+.button-menu-style {
   border-radius: 20px;
   font-size: 1.5em;
   margin: 40px;
-   padding: 20px 50px;
-  
- }
- .menu2 {
-   margin: 20px;
-   h3 {
-     padding: 20px;
-   }
+  padding: 20px 50px;
+}
+.button-mar {
+  border-radius: 20px;
+  font-size: 1.5em;
+  margin: 40px;
+  padding: 20px 50px;
+}
 
-   h4{
-     padding: 20px;
-   }
- }
+.button-signup-style {
+  border-radius: 20px;
+  font-size: 1.5em;
+  margin: 40px auto;
+  padding: 20px 50px;
+}
+.selectors{
+  margin: 20px 0;
+}
 
- .img-menu {
-   margin-top: 40px;
- }
+.menu2 {
+  margin: 20px;
+  h3 {
+    padding: 20px;
+  }
 
- /* #form-container{
-   display: flex;
-   flex-flow: row;
- }
+  h4 {
+    padding: 20px;
+  }
+}
 
- .ariadna{
-   display: flex;
-   flex-flow: row;
- }
+.img-menu {
+  margin-top: 40px;
+}
 
- .menu{
-  
- } */
+h2,
+h5 {
+  color: #068587;
+  text-align: center;
+}
+h6 {
+  color: #068587;
+  margin: 10px 0px 0px 0px;
+}
+.jour-rep-box {
+  padding-left: 30px;
+}
+.signup-box {
+  padding-left: 30px;
+  padding-top: 40px;
+}
+
+p {
+  font-size: 1.5em;
+  color: #112f41;
+}
+.margin{
+  margin-top: 30px;
+}
+.user-pic {
+  width: 100px;
+}
+.picture {
+  width: 350px;
+}
+
+.textblock{
+  word-wrap: break-word;
+}
