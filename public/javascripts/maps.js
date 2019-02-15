@@ -1,14 +1,14 @@
 
 
 
-let madrid = {lat: 40.4167,lng: -3.542};  
+let madrid = {lat: 40.4078219,lng: -3.7011745};  
 
   
 function startMap() 
 { 
   map = new google.maps.Map(document.getElementById('map'),
   {
-    zoom: 10,
+    zoom: 14,
     center: madrid
   }); 
 }
