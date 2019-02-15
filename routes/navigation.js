@@ -46,7 +46,7 @@ router.post("/journey/new", ensureLoggedIn("/"),(req,res,next)=>
     //   );
     ).then(()=>
     {
-      console.log('PRIMER THEN')
+      
       Journey.create(
       {
       markBeg:{lat:req.body.marks,lng:req.body.marks3},
@@ -60,13 +60,13 @@ router.post("/journey/new", ensureLoggedIn("/"),(req,res,next)=>
 
       }).then(()=>{
        res.redirect("/navi/journey/new")
-      }).catch(() => console.log('lalalalalalalalalalala'))
-    }).catch(()=>console.log('NOOOOOOOOOOOOOOOOOOOo'))
+      }).catch(() => console.log('Ha habido algún problema, porfavor repite la operacion con cuidado'))
+    }).catch(()=>console.log('Algo ha fallado vuelve atrás y comrpuebalo todo'))
     
 })
 
 router.get("/journey/:id", ensureLoggedIn("/"),(req, res, next)=>{
-  /* console.log(req.params.id) */
+
   Journey.findById(req.params.id)
   .populate("comments")
   .populate("creatorId")
@@ -118,7 +118,7 @@ router.post("/report/new", ensureLoggedIn("/"),cloudinary.single("photo"),(req,r
     //   //  done
     //   );
     ).then(()=>
-    { console.log(req.body.repos3)
+    { 
       Report.create(
       {
       creatorId: req.user._id,
@@ -135,8 +135,8 @@ router.post("/report/new", ensureLoggedIn("/"),cloudinary.single("photo"),(req,r
       
       }).then(()=>{
         res.redirect("/navi/report/new")
-       }).catch(() => console.log('lalalalalalalalalalala'))
-     }).catch(console.log('NOOOOOOOOOOOOOOOOOOOo'))
+       }).catch(() => console.log('Ha habido algún problema, porfavor repite la operacion con cuidado'))
+     }).catch(console.log('Algo ha fallado vuelve atrás y comrpuebalo todo'))
     
 //     )
     
