@@ -35,7 +35,7 @@ router.get("/reports",(req,res,next)=>{
   })
 })
 
-router.post("/journey/new"/* , ensureLoggedIn("/") */,(req,res,next)=>
+router.post("/journey/new", ensureLoggedIn("/"),(req,res,next)=>
 {     console.log("va o no va",typeof( req.body.marks3),req.body.marks)
     marks.create(
     //    // { _id: mark._id }, 
@@ -65,7 +65,7 @@ router.post("/journey/new"/* , ensureLoggedIn("/") */,(req,res,next)=>
     
 })
 
-router.get("/journey/:id"/* , ensureLoggedIn("/") */,(req, res, next)=>{
+router.get("/journey/:id", ensureLoggedIn("/"),(req, res, next)=>{
   /* console.log(req.params.id) */
   Journey.findById(req.params.id)
   .populate("comments")

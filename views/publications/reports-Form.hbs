@@ -1,40 +1,46 @@
-{{!-- <script src="/javascripts/routing.js"></script> --}}
+{{!--
+<script src="/javascripts/routing.js"></script> --}}
 
+<div class="jour-rep-box">
+  <h2>Describe your Report</h2>
+  <form action="/navi/report/new" method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+      <label></label>
+      <input class="form-control" name="name" placeholder="Name of Report"></input>
+      <label></label>
+      <textarea class="form-control" rows="2" name="content" placeholder="Describe your Report"></textarea>
+      <div class="selectors">
+        <label>Nature</label>
+        <select name="nature">
+          <option value="damage">Damage</option>
+          <option value="infrastructure">Infrastructure</option>
+          <option value="cleanup">Cleanup</option>
+          <option value="others">Others</option>
+        </select>
 
-<form action="/navi/report/new" method="POST" enctype="multipart/form-data">
-  <label>Name of Report</label>
-  <input name="name" placeholder="Name of Report"></input>
-  <label>Content</label>
-  <textarea name="content" placeholder="Content"></textarea>
+        <label>Severity</label>
+        <select name="severity">
+          <option value="serious">Serious</option>
+          <option value="light">Light</option>
+        </select>
 
-  <label>Nature</label>
-  <select name="nature">
-    <option value="damage">Damage</option>
-    <option value="infrastructure">Infrastructure</option>
-    <option value="cleanup">Cleanup</option>
-    <option value="others">Others</option>
-  </select>
+        <label>State</label>
+        <select name="State">
+          <option value="done">Done</option>
+          <option value="not started">Not started</option>
+          <option value="in process">In process</option>
+        </select>
 
-  <label>Severity</label>
-  <select name="severity">
-    <option value="serious">Serious</option>
-    <option value="light">Light</option>
-  </select>
-
-  <label>State</label>
-  <select name="State">
-    <option value="done">Done</option>
-    <option value="not started">Not started</option>
-    <option value="in process">In process</option>
-  </select>
-
-  <label>Add image</label>
-  <input type="file" name="photo">
-
-
-  <label>Coordinates</label>
-  <input type="text" name="repos" id="repos">
-  <input type="text" name="repos3" id="repos3">
-  <input type="submit" value="Click to save Route">
-
-</form>
+        <div class="form-group form-inline">
+          <label for="photo">Upload Image</label>
+          <input class="form-control-file mb-2" type="file" name="photo">
+        </div>
+      </div>
+      <p>Click on map to mark report</p>
+      <label></label>
+      <input class="form-control" type="text" name="repos" id="repos">
+      <input class="form-control" type="text" name="repos3" id="repos3">
+      <input class="button-menu button-signup-style" type="submit" value="Click to save Route">
+    </div>
+  </form>
+</div>
