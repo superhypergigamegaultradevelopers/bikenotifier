@@ -5,7 +5,7 @@ const hbs=require ('handlebars')
 const marks=require("../models/marks")
 /* GET home page */
 router.get('/', (req, res, next) => {
-  res.render('tracking/menu');
+  res.render('tracking/menu', {"API_URL": process.env.API_URL});
   
 });
 
