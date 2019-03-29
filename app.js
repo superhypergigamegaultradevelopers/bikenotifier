@@ -61,7 +61,7 @@ hbs.registerHelper('ifUndefined', (value, options) => {
   
 
 // default value for title local
-app.locals.title = 'This is going to be a great app: Bikenotifier!!!';
+app.locals.title = 'Bikenotifier';
 
 
 // Enable authentication using session + passport
