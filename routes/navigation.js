@@ -65,7 +65,7 @@ router.post("/journey/new", ensureLoggedIn("/"),(req,res,next)=>
     
 })
 
-router.get("/journey/:id", ensureLoggedIn("/"),(req, res, next)=>{
+router.get("/journey/:id",(req, res, next)=>{
 
   Journey.findById(req.params.id)
   .populate("comments")
@@ -88,7 +88,7 @@ router.get("/journey/:id", ensureLoggedIn("/"),(req, res, next)=>{
   
  })
 
-router.get("/report/:id", ensureLoggedIn("/"),(req, res, next)=>{
+router.get("/report/:id",(req, res, next)=>{
  /* console.log(req.params.id) */
  Report.findById(req.params.id)
  .populate("comments")
